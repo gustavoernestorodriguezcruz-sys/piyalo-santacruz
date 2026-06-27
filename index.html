@@ -3,27 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>PIYALO - Encuentra lo que necesitas</title>
-    <meta name="description" content="Directorio local para encontrar servicios rápidos y contactar directo por WhatsApp.">
+    <title>PIYALO - Todo lo que necesitás cerca tuyo</title>
+    <meta name="description" content="Encontrá servicios locales al instante en Santa Cruz. Conectamos personas de manera rápida, cercana y confiable.">
     <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .categories-container {
+            display: flex;
+            overflow-x: auto;
+            padding: 4px 16px 16px 16px;
+            gap: 10px;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        .categories-container::-webkit-scrollbar {
+            display: none;
+        }
+        .category-pill {
+            background: var(--card-white);
+            color: var(--text-main);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            white-space: nowrap;
+            box-shadow: var(--shadow-soft);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: var(--font-family);
+        }
+        .category-pill.active {
+            background: var(--brand-pink);
+            color: white;
+        }
+        .results-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            padding: 0 16px 12px 16px;
+            color: var(--text-main);
+        }
+    </style>
 </head>
 <body>
+
     <header class="app-header">
         <h1>PIYALO</h1>
     </header>
 
     <main class="app-main">
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="¿Qué estás buscando?..." autocomplete="off">
+            <input type="text" id="searchInput" placeholder="¿Qué estás buscando hoy?..." autocomplete="off">
         </div>
         
+        <div class="categories-container" id="categoriesContainer">
+            <button class="category-pill active" data-category="todos">Todos</button>
+            <button class="category-pill" data-category="Hogar">Hogar</button>
+            <button class="category-pill" data-category="Clima">Clima</button>
+            <button class="category-pill" data-category="Seguridad">Seguridad</button>
+            <button class="category-pill" data-category="Tecnología">Tecnología</button>
+        </div>
+
+        <h2 class="section-title">Servicios destacados</h2>
+
         <div id="resultsContainer" class="results-grid">
             </div>
     </main>
 
     <nav class="bottom-nav">
-        <a href="index.html" class="nav-item active">Inicio</a>
-        <a href="pages/service-template.html" class="nav-item">Servicios</a>
+        <a href="index.html" class="nav-item active" style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+            <span style="font-size: 1.2rem;">🔍</span>
+            <span>Descubrí</span>
+        </a>
+        <a href="#" class="nav-item" style="display: flex; flex-direction: column; align-items: center; gap: 4px; opacity: 0.5;">
+            <span style="font-size: 1.2rem;">💼</span>
+            <span>Trabajo</span>
+        </a>
+        <a href="#" class="nav-item" style="display: flex; flex-direction: column; align-items: center; gap: 4px; opacity: 0.5;">
+            <span style="font-size: 1.2rem;">🏪</span>
+            <span>Negocios</span>
+        </a>
     </nav>
 
     <script src="js/app.js"></script>
