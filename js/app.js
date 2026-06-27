@@ -1,9 +1,7 @@
-// js/app.js
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const resultsContainer = document.getElementById('resultsContainer');
     
-    // Fail-safe: Si no estamos en la página de inicio, detener ejecución
     if (!searchInput || !resultsContainer) return;
 
     let servicesData = [];
@@ -14,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!response.ok) throw new Error('Error de red');
             
             const data = await response.json();
-            // Fail-safe: Asegurar que sea un array aunque el JSON esté mal estructurado internamente
             servicesData = Array.isArray(data.services) ? data.services : [];
             renderResults(servicesData);
         } catch (error) {
@@ -32,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         data.forEach(service => {
-            // Fail-safes: Valores por defecto si el usuario olvida llenar un campo en el JSON
             const title = service.title || 'Servicio sin nombre';
             const category = service.category || 'General';
             const description = service.description || '';
