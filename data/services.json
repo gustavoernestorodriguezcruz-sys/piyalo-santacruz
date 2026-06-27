@@ -1,12 +1,39 @@
-
 {
   "services": [
     {
-      "title": "AQUI TU SERVICIO",
-      "category": "AQUI CATEGORIA",
-      "description": "AQUI DESCRIPCION",
-      "whatsapp_number": "591XXXXXXXX",
-      "keywords": ["palabra1", "palabra2"]
+      "title": "Electricista 24h",
+      "category": "Hogar",
+      "description": "Servicio de electricidad a domicilio, emergencias y reparaciones rápidas.",
+      "whatsapp_number": "59172635468",
+      "keywords": ["electricidad", "corto circuito", "luz", "cables"]
+    },
+    {
+      "title": "Plomero a domicilio",
+      "category": "Hogar",
+      "description": "Reparación de fugas, instalación y mantenimiento de tuberías.",
+      "whatsapp_number": "59172635468",
+      "keywords": ["agua", "fuga", "tuberías", "baño"]
+    },
+    {
+      "title": "Técnico de aire acondicionado",
+      "category": "Clima",
+      "description": "Instalación, mantenimiento y reparación de aires acondicionados.",
+      "whatsapp_number": "59172635468",
+      "keywords": ["aire", "frío", "gas", "split"]
+    },
+    {
+      "title": "Cerrajero urgente",
+      "category": "Seguridad",
+      "description": "Apertura de puertas, cambio de cerraduras y asistencia urgente.",
+      "whatsapp_number": "59172635468",
+      "keywords": ["llave", "cerradura", "puerta", "bloqueo"]
+    },
+    {
+      "title": "Técnico de computadoras",
+      "category": "Tecnología",
+      "description": "Reparación de PCs, laptops, formateo y limpieza de virus.",
+      "whatsapp_number": "59172635468",
+      "keywords": ["pc", "laptop", "virus", "formateo"]
     }
   ]
 }
