@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Conversión limpia a URL amigable para las landings SEO en /pages/
             const fileName = title.toLowerCase().replace(/\s+/g, '-') + '.html';
-            const pageLink = `./pages/${fileName}`;
+            const pageLink = `/piyalo-santacruz/pages/${fileName}`;
 
             const card = document.createElement('div');
             card.className = 'card';
