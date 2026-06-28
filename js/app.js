@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Carga inicial del JSON de servicios
     async function init() {
         try {
-            const response = await fetch('./data/services.json');
+            const response = await fetch('../data/services.json');
             if (!response.ok) throw new Error('Error al conectar con la base de datos');
             
             const data = await response.json();
