@@ -1,53 +1,24 @@
-# PIYALO
+# PIYALO - Directorio Local de Conversión Directa (Santa Cruz, BO)
 
-Sistema estático de SEO local (Rank & Rent) enfocado en convertir visitas en mensajes de WhatsApp.
-No requiere backend, bases de datos ni instalación.
+Ecosistema web estático optimizado para dispositivos móviles y estructurado bajo el modelo de negocio **Rank & Rent** enfocado en el mercado cruceño. Diseñado para la captación masiva de leads de alta conversión mediante derivación directa a canales de mensajería (WhatsApp).
 
----
+## 🚀 Arquitectura del Proyecto
 
-## 🚀 1. INSTALACIÓN EN GITHUB (PASO A PASO)
-
-1. Crear cuenta en GitHub: https://github.com
-2. Crear repositorio → "New repository"
-3. Nombre sugerido: `piyalo-santacruz`
-4. Seleccionar: **PUBLIC**
-5. Crear repositorio
-6. Subir archivos con "Upload files"
-7. Arrastrar toda la carpeta del proyecto
-8. Commit changes
-
----
-
-## 🌐 2. ACTIVAR WEB (GITHUB PAGES)
-
-1. Ir a **SETTINGS** del repositorio
-2. Ir a **PAGES**
-3. En "Source" seleccionar:
-   - Branch: `main`
-   - Folder: `/ (root)`
-4. Guardar
-5. Esperar 1–2 minutos
-6. Se generará un link público
-
----
-
-## ✏️ 3. EDITAR SERVICIOS (SIN ROMPER EL SISTEMA)
-
-Abre: `/data/services.json`
-
-⚠️ **IMPORTANTE:**
-- NO borres llaves `{ }`
-- NO elimines comillas `" "`
-- NO cambies la estructura
-
-➕ **Para agregar más servicios:**
-
-Copia un bloque de servicio completo y sepáralo con una coma `,`. Ejemplo de estructura limpia:
-```json
-    {
-      "title": "",
-      "category": "",
-      "description": "",
-      "whatsapp_number": "",
-      "keywords": [""]
-    }
+```text
+📁 tu-proyecto/
+├── 📄 index.html             <- Buscador central, categorías y renderizado dinámico.
+├── 📄 README.md              <- Documentación del ecosistema y especificaciones de escala.
+├── 📁 css/
+│   └── 📄 style.css          <- Estilos UI consistentes, variables de marca y layouts responsivos.
+├── 📁 js/
+│   └── 📄 app.js             <- Motor de filtrado y triggers de analítica (GA4 / Meta Pixel).
+├── 📁 data/
+│   └── 📄 services.json      <- Base de datos estática indexable (Keywords, WhatsApps e imágenes).
+├── 📁 img/                   <- Repositorio local de assets y avatares de técnicos en formato .webp.
+└── 📁 pages/
+    ├── 📄 service-template.html <- Plantilla base limpia para nuevos perfiles.
+    ├── 📄 electricista-24h.html
+    ├── 📄 plomero-a-domicilio.html
+    ├── 📄 tecnico-de-aire-acondicionado.html
+    ├── 📄 cerrajero-urgente.html
+    └── 📄 tecnico-de-computadoras.html
