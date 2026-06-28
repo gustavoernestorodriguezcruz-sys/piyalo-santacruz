@@ -23,117 +23,93 @@
       },
       "aggregateRating": {
         "@type": "AggregateRating",
-        "ratingValue": 4.9,
-        "reviewCount": 28
+        "ratingValue": "4.9",
+        "reviewCount": "28"
       }
     }
     </script>
-
-    <style>
-        .profile-header {
-            background: var(--card-white);
-            border-radius: var(--border-radius);
-            padding: 24px;
-            margin: 16px;
-            text-align: center;
-            box-shadow: var(--shadow-soft);
-        }
-        .profile-avatar {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, var(--brand-pink), #ff768e);
-            border-radius: 50%;
-            margin: 0 auto 12px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: white;
-            box-shadow: 0 4px 12px rgba(255, 59, 92, 0.2);
-        }
-        .badge-verified {
-            background: #25D366;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin: 20px 0 0 0;
-            padding-top: 16px;
-            border-top: 1px solid #f0f0f0;
-        }
-        .stat-box h4 { font-size: 1.1rem; font-weight: 700; color: var(--text-main); }
-        .stat-box p { font-size: 0.75rem; color: var(--text-muted); font-weight: 700; }
-        
-        .action-buttons {
-            display: grid;
-            grid-template-columns: 3fr 1fr;
-            gap: 12px;
-            margin: 0 16px 20px 16px;
-        }
-        .btn-call {
-            background: #111319;
-            color: white;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            text-decoration: none;
-            height: 52px;
-        }
-        
-        .section-card {
-            background: var(--card-white);
-            border-radius: var(--border-radius);
-            padding: 20px;
-            margin: 0 16px 16px 16px;
-            box-shadow: var(--shadow-soft);
-        }
-        .section-card h2 {
-            font-size: 1.1rem;
-            font-weight: 800;
-            margin-bottom: 12px;
-            color: var(--text-main);
-        }
-        .section-card p, .section-card li {
-            font-size: 0.95rem;
-            color: #444;
-            line-height: 1.5;
-        }
-    </style>
 </head>
 <body>
-    <main>
+
+    <main style="max-width: 600px; margin: 0 auto; padding-bottom: 20px;">
+        
         <section class="profile-header">
-            <div class="badge-verified">✓ Verificado</div>
-            <div class="profile-avatar">🔧</div>
-            <h1>PIYALO</h1>
+            <span style="font-size: 3rem; display: block; margin-bottom: 10px;">🪠</span>
+            <h1>Plomero a domicilio</h1>
             <p>Plomero Técnico Profesional</p>
+            
             <div class="stats-grid">
-                <div class="stat-box"><h4>4.9</h4><p>Estrellas</p></div>
-                <div class="stat-box"><h4>+150</h4><p>Trabajos</p></div>
-                <div class="stat-box"><h4>100%</h4><p>Garantía</p></div>
+                <div class="stat-box">
+                    <h4>4.9</h4>
+                    <p>Estrellas</p>
+                </div>
+                <div class="stat-box">
+                    <h4>+150</h4>
+                    <p>Trabajos</p>
+                </div>
+                <div class="stat-box">
+                    <h4>100%</h4>
+                    <p>Garantía</p>
+                </div>
             </div>
+
+            <a href="https://wa.me/59172635468?text=Hola,%20vi%20tu%20perfil%20en%20PIYALO%20y%20necesito%20asistencia%20de%20un%20Plomero" 
+               class="btn-whatsapp" target="_blank">
+                💬 Contactar por WhatsApp
+            </a>
         </section>
 
         <section class="section-card">
             <h2>Servicios de Plomería en Santa Cruz</h2>
             <p>Soluciones integrales de plomería y asistencia técnica a domicilio:</p>
             <ul>
-                <li>Detección precisa y reparación de fugas de agua y tuberías averiadas.</li>
+                <li>Detección precisa y reparación de fugas de agua ocultas y tuberías averiadas.</li>
                 <li>Montaje, reparación y mantenimiento de griferías, llaves de paso e inodoros.</li>
-                <li>Instalación y renovación de sistemas mediante termofusión para mayor durabilidad.</li>
-                <li>Atención inmediata para optimizar consumos y evitar daños estructurales</li>
+                <li>Instalación y renovación de sistemas de agua fría/caliente mediante termofusión.</li>
+                <li>Destranque urgente de lavamanos, desagües, desagües pluviales y alcantarillado.</li>
             </ul>
         </section>
+
+        <section class="section-card">
+            <h2>Disponibilidad Horaria</h2>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);">Lunes a Sábado:</span>
+                <span style="font-weight: 700;">07:00 - 21:00</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                <span style="color: var(--text-muted);">Domingos y Feriados:</span>
+                <span style="color: var(--brand-pink); font-weight: 700;">Urgencias por filtración</span>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>Preguntas Frecuentes</h2>
+            
+            <details>
+                <summary>¿Qué debo hacer si tengo una fuga de agua fuerte?</summary>
+                <p style="padding-top: 6px; font-size: 0.85rem; color: var(--text-muted);">
+                    Lo primero es cortar la llave de paso general (usualmente cerca del medidor de SAGUAPAC o en el baño principal) para frenar la presión y evitar daños estructurales o consumos altos en su factura. Luego, envíenos su ubicación para asistirle.
+                </p>
+            </details>
+
+            <details>
+                <summary>¿Utilizan tuberías de PVC convencionales o termofusión?</summary>
+                <p style="padding-top: 6px; font-size: 0.85rem; color: var(--text-muted);">
+                    Trabajamos con ambos sistemas según el requerimiento, pero para reparaciones definitivas de agua caliente o alta presión recomendamos e instalamos termofusión debido a su nula probabilidad de filtración a largo plazo.
+                </p>
+            </details>
+        </section>
+
     </main>
+
+    <nav class="bottom-nav">
+        <a href="../index.html" class="nav-item" style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+            <span>🔍</span><span>Descubrí</span>
+        </a>
+        <a href="#" class="nav-item active" style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+            <span>🪠</span><span>Servicio</span>
+        </a>
+    </nav>
+
 </body>
 </html>
