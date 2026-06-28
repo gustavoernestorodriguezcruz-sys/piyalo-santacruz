@@ -22,85 +22,76 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Aviso:', error);
             resultsContainer.innerHTML = `
-                <div style="text-align:center; padding:40px 20px; color:var(--text-muted);">
-                    <p style="font-size:1.5rem; margin-bottom:10px;">⚠️</p>
-                    <p>No pudimos conectar con los servicios locales hoy.</p>
-                </div>
-            `;
+                <div style=\"text-align:center; padding:40px 20px; color:var(--text-muted);\">\n                    <p style=\"font-size:1.5rem; margin-bottom:10px;\">⚠️</p>\n                    <p>No pudimos conectar con los servicios locales hoy.</p>\n                </div>\n            `;
         }
     }
 
     // 2. Función unificada para filtrar y renderizar tarjetas modernas
     function filterAndRender() {
         resultsContainer.innerHTML = '';
-        const searchTerm = (searchInput.value || '').toLowerCase();
+        
+        const query = searchInput.value.toLowerCase().trim();
 
         const filtered = servicesData.filter(service => {
-            const matchesCategory = (currentCategory === 'todos' || service.category === currentCategory);
+            const matchesCategory = currentCategory === 'todos' || service.category === currentCategory;
             
-            const t = (service.title || '').toLowerCase();
-            const c = (service.category || '').toLowerCase();
-            const k = Array.isArray(service.keywords) ? service.keywords.join(' ').toLowerCase() : '';
-            const matchesSearch = t.includes(searchTerm) || c.includes(searchTerm) || k.includes(searchTerm);
-
+            const matchesSearch = !query || 
+                service.title.toLowerCase().includes(query) || 
+                service.description.toLowerCase().includes(query) || 
+                (service.keywords && service.keywords.some(kw => kw.toLowerCase().includes(query)));
+                
             return matchesCategory && matchesSearch;
         });
 
         if (filtered.length === 0) {
             resultsContainer.innerHTML = `
-                <div style="text-align:center; padding:40px 20px; color:var(--text-muted);">
-                    <p style="font-size:1.5rem; margin-bottom:10px;">🔍</p>
-                    <p>No encontramos lo que estás buscando hoy.</p>
+                <div style="text-align:center; padding:40px; color:var(--text-muted);">
+                    <p style="font-size:1.2rem;">🔍</p>
+                    <p style="margin-top:8px; font-size:0.9rem;">No encontramos un técnico para esa búsqueda exacta.</p>
                 </div>
             `;
             return;
         }
 
         filtered.forEach(service => {
-    const title = service.title || 'Servicio';
-    const category = service.category || 'General';
-    const description = service.description || '';
-    const phone = service.whatsapp_number || '';
+            const card = document.createElement('div');
+            card.className = 'card';
+            
+            // Convertimos el título a un slug válido para el nombre del archivo HTML
+            const slug = service.title
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "") // Remueve acentos
+                .replace(/\s+/g, '-')            // Espacios a guiones
+                .replace(/[^a-z0-9-]/g, '');     // Limpia caracteres especiales
+            
+            const title = service.title;
+            const description = service.description;
+            const phone = service.whatsapp_number;
 
-    const fileName = title.toLowerCase().replace(/\s+/g, '-') + '.html';
-    const pageLink = `pages/${fileName}`;
+            card.innerHTML = `
+                <a href="pages/${slug}.html" style="text-decoration: none; color: inherit; display: block;">
+                    <h3 style="font-size: 1.2rem; font-weight: 700; line-height: 1.3;">${title}</h3>
+                </a>
+                
+                <a href="https://wa.me/${phone}?text=Hola,%20vi%20tu%20perfil%20en%20PIYALO%20y%20necesito%20el%20servicio%20de%20${encodeURIComponent(title)}" 
+                   class="btn-whatsapp" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <span>💬</span> Encontrá al instante
+                </a>
+            `;
 
-    const card = document.createElement('div');
-    card.className = 'card';
+            // Creamos el párrafo de descripción de forma segura para evitar problemas de inyección
+            const descP = document.createElement('p');
+            descP.style.cssText = "font-size:0.9rem; color:var(--text-muted); margin-top:4px; line-height:1.4;";
+            descP.textContent = description;
 
-    // Armamos la estructura base
-    card.innerHTML = `
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-            <span style="font-size: 0.8rem; color: var(--brand-pink); background: rgba(255, 59, 92, 0.08); padding: 4px 12px; border-radius: 100px; font-weight: 700;">
-                ${category}
-            </span>
-            <span style="font-size: 0.85rem; font-weight: 700; color: #FFB000; display: inline-flex; align-items: center; gap: 4px;">
-                ⭐ 4.9
-            </span>
-        </div>
-        
-        <a href="${pageLink}" style="text-decoration: none; color: var(--text-main); display: block; margin-bottom: 12px;">
-            <h3 style="font-size: 1.2rem; font-weight: 700; line-height: 1.3;">${title}</h3>
-        </a>
-        
-        <a href="https://wa.me/${phone}?text=Hola,%20vi%20tu%20perfil%20en%20PIYALO%20y%20necesito%20el%20servicio%20de%20${encodeURIComponent(title)}" 
-           class="btn-whatsapp" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-            <span>💬</span> Encontrá al instante
-        </a>
-    `;
+            // Insertamos el párrafo dentro del enlace antes del botón
+            const link = card.querySelector('a[href^="pages/"]');
+            link.appendChild(descP);
 
-    // Creamos el párrafo de descripción como texto plano
-    const descP = document.createElement('p');
-    descP.style.cssText = "font-size:0.9rem; color:var(--text-muted); margin-top:4px; line-height:1.4;";
-    descP.textContent = description;
-
-    // Insertamos el párrafo dentro del enlace antes del botón
-    const link = card.querySelector('a[href^="pages/"]');
-    link.appendChild(descP);
-
-    resultsContainer.appendChild(card);
-});
-
+            resultsContainer.appendChild(card);
+        });
+    }
 
     // 3. Manejo táctil del slider de categorías
     if (categoriesContainer) {
@@ -116,8 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Escucha del buscador en tiempo real
+    // 4. Input dinámico del buscador
     searchInput.addEventListener('input', filterAndRender);
 
+    // Arrancar la app
     init();
 });
