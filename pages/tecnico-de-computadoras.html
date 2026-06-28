@@ -34,9 +34,12 @@
     <main style="max-width: 600px; margin: 0 auto; padding-bottom: 20px;">
         
         <section class="profile-header">
-            <span style="font-size: 3rem; display: block; margin-bottom: 10px;">💻</span>
+            <div style="position: relative; width: 90px; height: 90px; margin: 0 auto 12px auto;">
+                <img src="../img/computadoras.webp" alt="Técnico de Sistemas" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'90\' height=\'90\' viewBox=\'0 0 24 24\' fill=\'%23FF3B5C\' style=\'opacity:0.2\'><path d=\'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z\'/></svg>'" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid var(--brand-pink); background: #f2f3f5;">
+                <span style="position: absolute; bottom: 0; right: 4px; background: #25D366; color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold; border: 2px solid white;">✓</span>
+            </div>
             <h1>Técnico de computadoras</h1>
-            <p>Especialista en Soporte de Sistemas y Hardware</p>
+            <p style="color: var(--brand-pink); font-weight: bold; font-size: 0.9rem; margin-bottom: 16px;">💻 Soporte de Sistemas y Hardware Activo</p>
             
             <div class="stats-grid">
                 <div class="stat-box">
@@ -54,7 +57,7 @@
             </div>
 
             <a href="https://wa.me/59172635468?text=Hola,%20vi%20tu%20perfil%20en%20PIYALO%20y%20necesito%20soporte%20para%20una%20Computadora" 
-               class="btn-whatsapp" target="_blank">
+               class="btn-whatsapp track-wa-click" data-service="Técnico de computadoras" target="_blank">
                 💬 Contactar por WhatsApp
             </a>
         </section>
@@ -63,7 +66,7 @@
             <h2>Soporte Informático a Domicilio</h2>
             <p>Soluciones de software y hardware para optimizar el rendimiento de tus equipos informáticos:</p>
             <ul>
-                <li>Mantenimiento preventivo físico (limpieza interna, cambio de pasta térmica en procesador).</li>
+                <li>Mantenimiento preventivo físico (limpieza interna, cambio de pasta térmica para evitar sobrecalentamiento).</li>
                 <li>Formateo e instalación limpia de Windows 10/11 optimizado y con licencia.</li>
                 <li>Eliminación profunda de malware, spyware y virus sin pérdida de información.</li>
                 <li>Diagnóstico y cambio de componentes (actualización a discos sólidos SSD, expansión de memoria RAM).</li>
@@ -95,7 +98,7 @@
             <details>
                 <summary>¿Por qué mi laptop se calienta mucho y se apaga sola?</summary>
                 <p style="padding-top: 6px; font-size: 0.85rem; color: var(--text-muted);">
-                    Esto ocurre usualmente cuando el disipador interno está obstruido por pelusas o polvo acumulado y la pasta térmica se ha resecado por completo. Al superar la temperatura de seguridad, el equipo se apaga automáticamente para proteger el procesador de quemarse. Requiere mantenimiento físico urgente.
+                    Esto ocurre usualmente por el polvo acumulado en la ciudad que obstruye el disipador o porque la pasta térmica se secó por el calor. El equipo se apaga por seguridad informática interna para evitar quemar el procesador. Requiere limpieza física urgente.
                 </p>
             </details>
         </section>
@@ -111,5 +114,6 @@
         </a>
     </nav>
 
+    <script src="../js/app.js"></script>
 </body>
 </html>
