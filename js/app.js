@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Carga inicial del JSON de servicios
     async function init() {
         try {
-            const response = await fetch('../data/services.json');
+            // Detectamos si estamos en /pages/ o en raíz
+            const pathPrefix = window.location.pathname.includes('/pages/') ? '../' : './';
+            const response = await fetch(`${pathPrefix}data/services.json`);
             if (!response.ok) throw new Error('Error al conectar con la base de datos');
             
             const data = await response.json();
@@ -33,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsContainer.innerHTML = '';
         const searchTerm = (searchInput.value || '').toLowerCase();
 
-        // Aplicamos el filtro cruzado: Categoría + Buscador de texto
         const filtered = servicesData.filter(service => {
             const matchesCategory = (currentCategory === 'todos' || service.category === currentCategory);
             
@@ -55,16 +56,18 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Renderizado del componente tarjeta con UI/UX de App
         filtered.forEach(service => {
             const title = service.title || 'Servicio';
             const category = service.category || 'General';
             const description = service.description || '';
             const phone = service.whatsapp_number || '';
 
-            // Conversión limpia a URL amigable para las landings SEO en /pages/
+            // Sanitizamos la descripción para evitar que se muestre como código
+            const safeDescription = description.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+            // Enlace relativo para GitHub Pages
             const fileName = title.toLowerCase().replace(/\s+/g, '-') + '.html';
-            const pageLink = `/piyalo-santacruz/pages/${fileName}`;
+            const pageLink = `pages/${fileName}`;
 
             const card = document.createElement('div');
             card.className = 'card';
@@ -82,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="${pageLink}" style="text-decoration: none; color: var(--text-main); display: block; margin-bottom: 12px;">
                     <h3 style="font-size: 1.2rem; font-weight: 700; line-height: 1.3;">${title}</h3>
                     <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px; line-height: 1.4;">
-                        ${description}
+                        ${safeDescription}
                     </p>
                 </a>
                 
@@ -101,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const pill = e.target.closest('.category-pill');
             if (!pill) return;
 
-            // Desactivamos la píldora anterior y activamos la nueva
             document.querySelectorAll('.category-pill').forEach(b => b.classList.remove('active'));
             pill.classList.add('active');
 
