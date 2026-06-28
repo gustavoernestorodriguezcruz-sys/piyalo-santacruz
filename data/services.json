@@ -3,37 +3,42 @@
     {
       "title": "Electricista 24h",
       "category": "Hogar",
-      "description": "Servicio de electricidad a domicilio, emergencias y reparaciones rápidas.",
+      "description": "Atención inmediata de cortocircuitos, fallas de luz e instalaciones en toda la ciudad.",
       "whatsapp_number": "59172635468",
-      "keywords": ["electricidad", "corto circuito", "luz", "cables"]
+      "image": "img/electricista.webp",
+      "keywords": ["electricidad", "corto circuito", "luz", "cables", "termicos", "duchas", "urgente"]
     },
     {
       "title": "Plomero a domicilio",
       "category": "Hogar",
-      "description": "Reparación de fugas, instalación y mantenimiento de tuberías.",
+      "description": "Reparación experta de fugas de agua, filtraciones y destranque de desagües urgentes.",
       "whatsapp_number": "59172635468",
-      "keywords": ["agua", "fuga", "tuberías", "baño"]
+      "image": "img/plomero.webp",
+      "keywords": ["agua", "fuga", "tuberias", "baño", "inodoro", "destranque", "filtracion", "saguapac"]
     },
     {
       "title": "Técnico de aire acondicionado",
       "category": "Clima",
-      "description": "Instalación, mantenimiento y reparación de aires acondicionados.",
+      "description": "Limpieza profunda, recarga de gas garantizada e instalación de Split para el calor cruceño.",
       "whatsapp_number": "59172635468",
-      "keywords": ["aire", "frío", "gas", "split"]
+      "image": "img/aire.webp",
+      "keywords": ["aire", "frio", "gas", "split", "mantenimiento", "goteo", "limpieza", "btu"]
     },
     {
       "title": "Cerrajero urgente",
       "category": "Seguridad",
-      "description": "Apertura de puertas, cambio de cerraduras y asistencia urgente.",
+      "description": "Apertura rápida de puertas, cambio de cerraduras y llaves atascadas las 24 horas.",
       "whatsapp_number": "59172635468",
-      "keywords": ["llave", "cerradura", "puerta", "bloqueo"]
+      "image": "img/cerrajero.webp",
+      "keywords": ["llave", "cerradura", "puerta", "bloqueo", "chapa", "candado", "abrir", "24h"]
     },
     {
       "title": "Técnico de computadoras",
       "category": "Tecnología",
-      "description": "Mantenimiento preventivo, eliminación de virus y optimización de PC y portátiles.",
+      "description": "Formateo Windows, eliminación profunda de virus y optimización física para evitar calentamiento.",
       "whatsapp_number": "59172635468",
-      "keywords": ["computadora", "laptop", "pc", "windows", "formateo"]
+      "image": "img/computadoras.webp",
+      "keywords": ["computadora", "laptop", "pc", "windows", "formateo", "mantenimiento", "virus", "ssd", "ram"]
     }
   ]
 }
